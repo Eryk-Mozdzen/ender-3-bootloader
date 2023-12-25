@@ -20,7 +20,7 @@ I write my own simple bootloader from scratch in assembler.
 It also don't have ablility to update firmware from SD card, but Y limit switch is not involved in process now.
 Bootloader is very simple: just jumping with program execution to firmware begin.
 
-### Building
+### Usage
 Build system is dedicated for Linux.
 Before building make sure you have correctly setup [arm-none-eabi](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) toolchain.
 
@@ -29,7 +29,8 @@ Before building make sure you have correctly setup [arm-none-eabi](https://devel
     make
 ```
 Now in folder `build` you should have `.bin` file containing bootloader.
-You can now write this using `stlink-tools` package:
+You can now write bootloader and firmware using `stlink-tools` package:
 ```
     st-flash write build/bootloader-minimal.bin 0x08000000
+    st-flash write path/to/your/firmware.bin    0x08007000
 ```
